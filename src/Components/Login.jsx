@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
 import { DetailsContext } from "../Context/DetailsContext";
 
-const API_URL = "http://localhost:5001";
+const API_URL = "https://cryptox-backend-wuiz.onrender.com"; // ✅ no trailing slash
 
 const Login = () => {
   const navigate = useNavigate();
@@ -18,7 +18,6 @@ const Login = () => {
     setError("");
   };
 
-  // ── Email Login ──
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -32,11 +31,7 @@ const Login = () => {
       });
 
       const data = await res.json();
-
-      if (!res.ok) {
-        setError(data.message || "Login failed");
-        return;
-      }
+      if (!res.ok) { setError(data.message || "Login failed"); return; }
 
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
@@ -44,13 +39,12 @@ const Login = () => {
       navigate("/");
     } catch (err) {
       console.log("Login error:", err);
-      setError("Cannot connect to server. Make sure backend is running on port 5001.");
+      setError("Cannot connect to server.");
     } finally {
       setLoading(false);
     }
   };
 
-  // ── MetaMask Login ──
   const handleMetaMaskLogin = async () => {
     if (!window.ethereum) {
       setError("MetaMask not found. Please install it.");
@@ -61,20 +55,11 @@ const Login = () => {
     setError("");
 
     try {
-      const accounts = await window.ethereum.request({
-        method: "eth_requestAccounts",
-      });
+      const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
       const address = accounts[0];
 
-      const nonceRes = await fetch(
-        `${API_URL}/api/auth/metamask/nonce/${address}`
-      );
-
-      if (!nonceRes.ok) {
-        setError("Failed to get nonce from server");
-        return;
-      }
-
+      const nonceRes = await fetch(`${API_URL}/api/auth/metamask/nonce/${address}`);
+      if (!nonceRes.ok) { setError("Failed to get nonce from server"); return; }
       const nonceData = await nonceRes.json();
 
       const signature = await window.ethereum.request({
@@ -82,21 +67,14 @@ const Login = () => {
         params: [nonceData.message, address],
       });
 
-      const verifyRes = await fetch(
-        `${API_URL}/api/auth/metamask/verify`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ address, signature }),
-        }
-      );
+      const verifyRes = await fetch(`${API_URL}/api/auth/metamask/verify`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ address, signature }),
+      });
 
       const verifyData = await verifyRes.json();
-
-      if (!verifyRes.ok) {
-        setError(verifyData.message || "MetaMask login failed");
-        return;
-      }
+      if (!verifyRes.ok) { setError(verifyData.message || "MetaMask login failed"); return; }
 
       localStorage.setItem("token", verifyData.token);
       localStorage.setItem("user", JSON.stringify(verifyData.user));
@@ -128,33 +106,19 @@ const Login = () => {
         <form className="auth-form" onSubmit={handleSubmit}>
           <div className="auth-field">
             <label className="auth-label">Email</label>
-            <input
-              className="auth-input"
-              type="email"
-              name="email"
-              placeholder="you@example.com"
-              value={form.email}
-              onChange={handleChange}
-              required
-            />
+            <input className="auth-input" type="email" name="email"
+              placeholder="you@example.com" value={form.email}
+              onChange={handleChange} required />
           </div>
 
           <div className="auth-field">
             <label className="auth-label">Password</label>
-            <input
-              className="auth-input"
-              type="password"
-              name="password"
-              placeholder="••••••••"
-              value={form.password}
-              onChange={handleChange}
-              required
-            />
+            <input className="auth-input" type="password" name="password"
+              placeholder="••••••••" value={form.password}
+              onChange={handleChange} required />
           </div>
 
-          <div className="auth-forgot">
-            <a href="#">Forgot password?</a>
-          </div>
+          <div className="auth-forgot"><a href="#">Forgot password?</a></div>
 
           <button className="auth-btn" type="submit" disabled={loading}>
             {loading ? "Signing in..." : "Sign In"}
@@ -163,11 +127,7 @@ const Login = () => {
 
         <div className="auth-divider"><span>or</span></div>
 
-        <button
-          className="auth-wallet-btn"
-          onClick={handleMetaMaskLogin}
-          disabled={metamaskLoading}
-        >
+        <button className="auth-wallet-btn" onClick={handleMetaMaskLogin} disabled={metamaskLoading}>
           <span className="auth-wallet-icon">🦊</span>
           {metamaskLoading ? "Connecting..." : "Continue with MetaMask"}
         </button>

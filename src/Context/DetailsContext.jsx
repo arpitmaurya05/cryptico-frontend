@@ -4,6 +4,8 @@ import { contractAddress, contractABI } from "../utils/Contract";
 
 export const DetailsContext = createContext();
 
+const API_URL = "https://cryptox-backend-wuiz.onrender.com"; // ✅ Render URL
+
 const DetailsProvider = ({ children }) => {
   const [account, setAccount] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -47,7 +49,7 @@ const DetailsProvider = ({ children }) => {
     if (!token) return;
 
     try {
-      await fetch("http://localhost:5001/api/auth/save-wallet", {
+      await fetch(`${API_URL}/api/auth/save-wallet`, { // ✅ Render URL
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -66,13 +68,12 @@ const DetailsProvider = ({ children }) => {
     if (!token) return;
 
     try {
-      const res = await fetch("http://localhost:5001/api/auth/get-wallet", {
+      const res = await fetch(`${API_URL}/api/auth/get-wallet`, { // ✅ Render URL
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
 
       if (data.walletAddress) {
-        // Check if MetaMask has this wallet connected
         const accounts = await window.ethereum.request({ method: "eth_accounts" });
         const matchingAccount = accounts.find(
           (a) => a.toLowerCase() === data.walletAddress.toLowerCase()
@@ -82,7 +83,6 @@ const DetailsProvider = ({ children }) => {
           setAccount(matchingAccount);
           await getTransactionHistory();
         } else {
-          // Wallet saved but not connected in MetaMask — clear it
           setAccount("");
         }
       }
@@ -136,7 +136,6 @@ const DetailsProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    // ✅ Load wallet linked to logged in user
     const token = localStorage.getItem("token");
     if (token && window.ethereum) {
       loadWalletFromAccount();
@@ -170,7 +169,7 @@ const DetailsProvider = ({ children }) => {
         method: "eth_requestAccounts",
       });
       setAccount(accounts[0]);
-      await saveWalletToAccount(accounts[0]); // ✅ save to backend
+      await saveWalletToAccount(accounts[0]);
       await getTransactionHistory();
     } catch (err) {
       console.log(err);
@@ -181,7 +180,6 @@ const DetailsProvider = ({ children }) => {
     setAccount("");
     setTransactions([]);
     setData({ receiverAddress: "", amount: "", message: "" });
-    // ✅ Remove wallet from backend too
     await saveWalletToAccount("");
   };
 

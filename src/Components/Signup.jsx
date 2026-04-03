@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
 
+const API_URL = "https://cryptox-backend-wuiz.onrender.com"; // ✅ Render URL
+
 const Signup = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({
@@ -31,7 +33,7 @@ const Signup = () => {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5001/api/auth/signup", {
+      const res = await fetch(`${API_URL}/api/auth/signup`, { // ✅
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -66,22 +68,18 @@ const Signup = () => {
     setError("");
 
     try {
-      // Step 1 — Get wallet address
       const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
       const address = accounts[0];
 
-      // Step 2 — Get nonce (this also creates the user if new)
-      const nonceRes = await fetch(`http://localhost:50001/api/auth/metamask/nonce/${address}`);
+      const nonceRes = await fetch(`${API_URL}/api/auth/metamask/nonce/${address}`); // ✅
       const nonceData = await nonceRes.json();
 
-      // Step 3 — Sign the nonce message
       const signature = await window.ethereum.request({
         method: "personal_sign",
         params: [nonceData.message, address],
       });
 
-      // Step 4 — Verify and login
-      const verifyRes = await fetch("http://localhost:50001/api/auth/metamask/verify", {
+      const verifyRes = await fetch(`${API_URL}/api/auth/metamask/verify`, { // ✅
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ address, signature }),
