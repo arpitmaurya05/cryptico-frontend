@@ -21,7 +21,7 @@ function Navbar() {
         <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/#transaction">Transaction</Link></li>
-          <li><Link to="/about">About Us</Link></li>
+          <li><Link to="/about">About</Link></li>
           <li>
             {user ? (
               // ✅ Show username + logout when logged in

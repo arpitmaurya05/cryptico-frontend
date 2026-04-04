@@ -37,7 +37,8 @@ a {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 15px 20px;
   top: 0;
   width: 100%;
   z-index: 1;
@@ -67,16 +68,15 @@ nav ul {
   flex-direction: row;
   list-style: none;
   margin: 0;
-  position: absolute;
-  right: 0;
+  gap: 15px;
 }
-
 nav ul li {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 5px 15px;
+      padding: 10px 0;
+
 }
 
 nav ul li a {
@@ -92,7 +92,11 @@ nav ul li a {
   background-color: #8663d1;
   color: white;
 }
-
+@media (max-width: 768px) {
+  .nav_logo_container img {
+    width: 8rem;
+  }
+}
 /* Home */
 
 .leftSection {
@@ -103,7 +107,8 @@ nav ul li a {
   font-size: 3rem;
   font-weight: 600;
   margin: 0;
-  
+  line-height: 1.2;
+  word-wrap: break-word;
 
   background: linear-gradient(
     90deg,
@@ -486,4 +491,21 @@ p{
   font-weight: bold;
   margin: 10px;
 }
-/*About Us*/
+/* MOBILE FIX */
+@media (max-width: 768px) {
+  .main_container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .leftSection,
+  .rightSection {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .leftSection {
+    margin-bottom: 20px;
+  }
+}
