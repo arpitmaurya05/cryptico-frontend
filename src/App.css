@@ -292,141 +292,151 @@ hr {
 /* ===== TRANSACTION SECTION ===== */
 .transaction-header {
   text-align: center;
-  padding: 40px 20px;
+  padding: 40px 16px 20px;
 }
-
+ 
 /* ===== HEADING ===== */
 .transaction-header h1 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 700;
- font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #00ffb4, #0090ff);
-
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #00ffb4, #0090ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
-  margin-bottom: 30px;
+  background-clip: text;
+  margin-bottom: 24px;
 }
-
-/* ===== TABLE CONTAINER (BACKGROUND) ===== */
+ 
+/* ===== TABLE CONTAINER ===== */
 .transaction-table {
-  padding: 30px;
-  background: linear-gradient(
-    90deg,
-    #0f0c29 0%,
-    #302b63 50%,
-    #24243e 100%
-  );
+  padding: 20px 16px;
+  background: linear-gradient(90deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
   border-radius: 15px;
-   overflow-x: auto;
 }
-
+ 
+/* ===== SCROLL WRAPPER ===== */
+.table-scroll-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+ 
 /* ===== TABLE ===== */
 .table-fill {
-  margin: auto;
+  width: 100%;
+  min-width: 600px; /* ensures scroll on small screens */
   border-collapse: collapse;
-  display: block;              /* important */
-  overflow-x: auto;            /* enables horizontal scroll */
-  white-space: nowrap;         /* prevents breaking */
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
   border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-    width: max-content;
 }
-.table-fill thead,
-.table-fill tbody,
-.table-fill tr {
-  display: table;
-  width: 100%;
-}
+ 
 /* ===== HEADER ===== */
 th {
   background: rgba(0, 0, 0, 0.6);
   color: #e0e7ff;
-  white-space: nowrap;
-  font-size: 13px;
-
-padding: 12px 20px;
-  font-size: 14px;
+  font-size: 12px;
+  padding: 14px 16px;
   text-transform: uppercase;
   letter-spacing: 1px;
-
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+  text-align: left;
+  font-weight: 600;
+  text-shadow: none;
 }
-
+ 
 /* ===== ROW ===== */
 tr {
-  transition: 0.3s ease;
-    white-space: nowrap;
-
+  transition: background 0.2s ease;
+  border: none;
 }
-
+ 
 /* ===== CELLS ===== */
 td {
-padding: 12px 20px; 
- color: #dbeafe;
-  font-size: 14px;
+  padding: 12px 16px;
+  color: #dbeafe;
+  font-size: 13px;
   white-space: nowrap;
-
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: transparent;
+  text-shadow: none;
+  vertical-align: middle;
 }
-@media (max-width: 768px) {
-  .table-fill {
-    font-size: 12px;
-  }
-}
-
+ 
 /* ===== ALTERNATE ROW ===== */
 tr:nth-child(even) td {
   background: rgba(255, 255, 255, 0.02);
 }
-
+ 
 /* ===== HOVER EFFECT ===== */
 tr:hover td {
-  background: rgba(125, 211, 252, 0.15);
+  background: rgba(125, 211, 252, 0.12);
   color: #ffffff;
-  transform: scale(1.01);
 }
-
+ 
 /* ===== TEXT ALIGN ===== */
 .text-left {
   text-align: left;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-style: normal;
 }
-
-.text-center {
-  text-align: center;
-}
-
-.text-right {
-  text-align: right;
-}
-
+ 
+.text-center { text-align: center; }
+.text-right  { text-align: right; }
+ 
 /* ===== EMPTY STATE ===== */
-td[colspan="5"] {
-  text-align: center;
-  padding: 30px;
-  color: #94a3b8;
+.tx-empty-cell {
+  text-align: center !important;
+  padding: 40px 16px !important;
+  color: #94a3b8 !important;
   font-style: italic;
+  white-space: normal !important;
 }
-
-/* ===== RESPONSIVE ===== */
+ 
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
-  .table-fill {
-    font-size: 12px;
+  .transaction-header {
+    padding: 30px 12px 16px;
   }
-
-  th, td {
-    padding: 10px;
-  }
-
+ 
   .transaction-header h1 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+  }
+ 
+  .transaction-table {
+    padding: 12px;
+    border-radius: 10px;
+  }
+ 
+  th {
+    font-size: 11px;
+    padding: 10px 12px;
+  }
+ 
+  td {
+    font-size: 12px;
+    padding: 10px 12px;
+  }
+}
+ 
+@media (max-width: 480px) {
+  .transaction-header h1 {
+    font-size: 1.3rem;
+  }
+ 
+  th {
+    font-size: 10px;
+    padding: 8px 10px;
+  }
+ 
+  td {
+    font-size: 11px;
+    padding: 8px 10px;
   }
 }
 p{
