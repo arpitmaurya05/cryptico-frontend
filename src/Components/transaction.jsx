@@ -8,7 +8,7 @@ function Transaction() {
   return (
     <div className="transaction-header">
       <h1>
-        Transactions
+       
         <span>All transactions</span>
       </h1>
 
