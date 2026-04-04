@@ -325,8 +325,6 @@ hr {
 
 /* ===== TABLE ===== */
 .table-fill {
-  width: 100%;
-  max-width: 900%;
   margin: auto;
   border-collapse: collapse;
   display: block;              /* important */
@@ -337,13 +335,13 @@ hr {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    width: max-content;
 }
 .table-fill thead,
 .table-fill tbody,
 .table-fill tr {
   display: table;
   width: 100%;
-  table-layout: fixed;
 }
 /* ===== HEADER ===== */
 th {
