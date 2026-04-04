@@ -18,7 +18,7 @@ function Transaction() {
             <th className="text-left">Receiver</th>
             <th className="text-left">Message</th>
             <th className="text-left">Amount</th>
-            <th className="text-left">Timestamp</th>
+            <th className="text-left">Time</th>
           </tr>
         </thead>
         <tbody>
