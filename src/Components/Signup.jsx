@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
 
-const API_URL = "https://cryptox-backend-wuiz.onrender.com"; // ✅ Render URL
+const API_URL = "https://cryptox-backend-1.onrender.com";
 
 const Signup = () => {
   const navigate = useNavigate();
