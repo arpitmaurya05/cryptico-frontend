@@ -2,7 +2,7 @@
 
 * {
   margin: 0;
-  padding: 0;
+  padding: 4;
   box-sizing: border-box;
 }
 .app {
@@ -86,7 +86,7 @@ nav ul li a {
 
 /* LOGIN BUTTON */
 .login-btn {
-  background-color: #8663d1;
+  background-color: #38bdf8;
   color: white;
   padding: 8px 14px;
   border-radius: 6px;
@@ -207,7 +207,7 @@ hr {
 }
 
 .send-btn {
-  background-color: #179fcc;
+  background-color: #38bdf8;
   color: white;
   margin: 10px;
 }
@@ -553,4 +553,53 @@ p{
   .leftSection {
     margin-bottom: 20px;
   }
+}
+
+.dropdown {
+  position: absolute;
+  top: 55px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 8px;
+  width: 180px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  z-index: 1000;
+  animation: fadeIn 0.15s ease;
+}
+
+.dropdown p {
+  margin: 0;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  border-radius: 8px;
+  transition: background 0.15s ease, color 0.15s ease;
+  letter-spacing: 0.3px;
+}
+
+.dropdown p:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+.dropdown p:last-child {
+  color: rgba(255, 100, 100, 0.85);
+}
+
+.dropdown p:last-child:hover {
+  background: rgba(255, 80, 80, 0.15);
+  color: #ff6b6b;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
