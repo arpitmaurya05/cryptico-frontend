@@ -8,7 +8,7 @@ import Footer from './Components/footer'
 import Transaction from './Components/transaction'
 import Login from './Components/Login'
 import Signup from './Components/Signup'
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/next"
 
 function App() {
   return (
