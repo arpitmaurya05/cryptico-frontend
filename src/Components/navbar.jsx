@@ -22,7 +22,7 @@ function Navbar() {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/#transaction">Transaction</Link></li>
           <li><Link to="/about">About</Link></li>
-          <li>
+           <li>
             {user ? (
               // ✅ Show username + logout when logged in
               <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
@@ -39,6 +39,7 @@ function Navbar() {
                 <button className="btn login-btn">Login</button>
               </Link>
             )}
+          
           </li>
         </ul>
       </nav>

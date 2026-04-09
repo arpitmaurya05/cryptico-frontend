@@ -259,7 +259,7 @@ const styles = `
   .mission-card p {
     font-size: 15px;
     line-height: 1.7;
-    color: #6a6860;
+    color: #93928dff;
     margin: 0;
   }
 
@@ -351,7 +351,7 @@ const styles = `
   .team-bio {
     font-size: 14px;
     line-height: 1.65;
-    color: #5a5855;
+    color: #ffffffff;
     margin: 0;
   }
 

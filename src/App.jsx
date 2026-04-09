@@ -23,8 +23,8 @@ function App() {
           </>
         } />
         <Route path="/about" element={<AboutUs />} />
-        <Route path="/login" element={<Login />} />      {/* ✅ added */}
-        <Route path="/signup" element={<Signup />} />    {/* ✅ added */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
       <Footer />
     </div>
