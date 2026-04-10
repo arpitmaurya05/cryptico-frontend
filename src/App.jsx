@@ -9,6 +9,8 @@ import Transaction from './Components/transaction'
 import Login from './Components/Login'
 import Signup from './Components/Signup'
 import { Analytics } from "@vercel/analytics/react"
+ 
+
 function App() {
   return (
     <div className='app'>
@@ -23,6 +25,7 @@ function App() {
           </>
         } />
         <Route path="/about" element={<AboutUs />} />
+ 
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>

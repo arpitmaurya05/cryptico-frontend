@@ -206,7 +206,8 @@ hr {
 }
 
 .send-btn {
-  background-color: #38bdf8;
+    background: linear-gradient(135deg, #00ffb4, #0090ff);
+
   color: white;
   margin: 10px;
 }

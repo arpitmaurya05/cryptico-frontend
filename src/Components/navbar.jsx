@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import logo from "../image/logo_transparent.png";
 import { Link, useNavigate } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
-
+ 
 function Navbar() {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
@@ -26,8 +26,7 @@ function Navbar() {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/#transaction">Transaction</Link></li>
           <li><Link to="/about">About</Link></li>
-
-          <li style={{ position: "relative" }}>
+           <li style={{ position: "relative" }}>
             {user ? (
               <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
 
