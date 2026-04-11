@@ -1,33 +1,36 @@
 import React, { useContext } from "react";
 import Loader from "./Loader";
 import { DetailsContext } from "../Context/DetailsContext";
+import { useWeb3Modal } from '@web3modal/wagmi/react'
+import { useAccount, useDisconnect } from 'wagmi'
 
 const Home = () => {
+  // ✅ All hooks must be INSIDE the component
+  const { open } = useWeb3Modal()
+  const { address, isConnected } = useAccount()
+  const { disconnect } = useDisconnect()
+
   const {
-    connectWallet,
-    account,
     handleChange,
     handleSubmit,
     isLoading,
-    disconnectWallet,
   } = useContext(DetailsContext);
 
   return (
     <div className="main_container">
       <div className="section_container">
-        
+
         {/* LEFT SECTION */}
         <div className="leftSection">
           <h1>Execute swift and secure digital asset transactions through CryptoX</h1>
           <p>Fast and effortless sending and receiving, with added security</p>
 
-          {/* FIXED BUTTON LOGIC */}
-          {account ? (
-            <button onClick={disconnectWallet} className="dbtn">
+          {isConnected ? (
+            <button className="btn dbtn" onClick={() => disconnect()}>
               Disconnect Wallet
             </button>
           ) : (
-            <button onClick={connectWallet} className="dbtn">
+            <button className="btn connect-btn" onClick={() => open()}>
               Connect Wallet
             </button>
           )}
@@ -36,8 +39,8 @@ const Home = () => {
         {/* RIGHT SECTION */}
         <div className="rightSection">
           <div className="inputBox">
-            
-            {account && <a>{account}</a>}
+
+            {address && <a>{address.slice(0,6)}...{address.slice(-4)}</a>}
 
             <input
               type="text"
@@ -45,7 +48,6 @@ const Home = () => {
               name="receiverAddress"
               onChange={handleChange}
             />
-
             <input
               type="number"
               placeholder="Enter the amount"
@@ -53,7 +55,6 @@ const Home = () => {
               step="0.0001"
               onChange={handleChange}
             />
-
             <input
               type="text"
               placeholder="Enter your message"

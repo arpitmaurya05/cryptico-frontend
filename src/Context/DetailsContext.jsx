@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import { ethers } from "ethers";
 import { contractAddress, contractABI } from "../utils/Contract";
-
+import { useAccount } from 'wagmi'
 export const DetailsContext = createContext();
 
 const API_URL = "https://cryptox-backend-1.onrender.com";
@@ -9,6 +9,7 @@ const API_URL = "https://cryptox-backend-1.onrender.com";
 const DetailsProvider = ({ children }) => {
   const [account, setAccount] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const { address, isConnected } = useAccount()
   const [transactions, setTransactions] = useState([]);
   const [Data, setData] = useState({
     receiverAddress: "",
