@@ -44,7 +44,9 @@ function Navbar() {
    {/* 👇 Dropdown */}
                 {open && (
                   <div className="dropdown">
-                
+                <p><li><Link to="/news">📰 News</Link></li></p>
+                <p>👤 Profile</p>
+                <p><li><Link to="/chart">📈 Chart</Link></li></p>
                     <p onClick={handleLogout}>🚪 Logout</p>
                   </div>
                 )}

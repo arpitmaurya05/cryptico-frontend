@@ -9,7 +9,9 @@ import Transaction from './Components/transaction'
 import Login from './Components/Login'
 import Signup from './Components/Signup'
 import { Analytics } from "@vercel/analytics/react"
- 
+ import NewsFeed from './Components/NewsFeed'
+import CryptoChart from './Components/CryptoChart'
+
 
 function App() {
   return (
@@ -25,9 +27,10 @@ function App() {
           </>
         } />
         <Route path="/about" element={<AboutUs />} />
- 
+        <Route path="/news" element={<NewsFeed />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/chart" element={<CryptoChart />} />
       </Routes>
       <Footer />
             <Analytics />

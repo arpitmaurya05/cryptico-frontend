@@ -27,4 +27,4 @@ createWeb3Modal({
   projectId,
   chains,
   defaultChain: sepolia,
-})
+}) 

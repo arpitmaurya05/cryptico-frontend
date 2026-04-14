@@ -28,6 +28,8 @@ function Footer() {
           <Link to="/">Home</Link>
           <a href="#">Transaction</a>
     <Link to="/about">About Us</Link>
+        <Link to="/news">News</Link>
+
     
 
         </div>
