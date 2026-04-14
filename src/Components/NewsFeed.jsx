@@ -114,7 +114,7 @@ function NewsFeed() {
         <div className="news-header">
           <div className="news-label">
             <span className="news-live-dot" />
-            Live Updates · Auto-refreshes every 5 mins
+            Live Updates 
           </div>
           <h1 className="news-title">Crypto <span>News</span></h1>
           <p className="news-subtitle">
