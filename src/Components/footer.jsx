@@ -29,6 +29,7 @@ function Footer() {
           <a href="#">Transaction</a>
     <Link to="/about">About Us</Link>
         <Link to="/news">News</Link>
+        <Link to="/chart">Chart</Link>
 
     
 
