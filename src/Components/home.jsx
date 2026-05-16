@@ -49,7 +49,7 @@ const Home = () => {
             <button className="home-cta" onClick={() => navigate("/wallet")}>
               🚀 Open Wallet
             </button>
-            <Link to="/prices" className="home-ghost">
+            <Link to="/news" className="home-ghost">
               📈 Markets
             </Link>
             <Link to="/chart" className="home-ghost">
