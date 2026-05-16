@@ -157,10 +157,7 @@ const Signup = () => {
 
         <div className="auth-divider"><span>or</span></div>
 
-        <button className="auth-wallet-btn" onClick={handleMetaMaskSignup} disabled={metamaskLoading}>
-          <span className="auth-wallet-icon">🦊</span>
-          {metamaskLoading ? "Connecting..." : "Sign up with MetaMask"}
-        </button>
+        
 
         <p className="auth-terms">
           By creating an account you agree to our{" "}

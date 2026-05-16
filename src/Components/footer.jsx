@@ -26,7 +26,7 @@ function Footer() {
         <div className="footer-links">
           <h3>Quick Links</h3>
           <Link to="/">Home</Link>
-          <a href="#">Transaction</a>
+          <Link to="/Transactionpage">Transaction</Link>
     <Link to="/about">About Us</Link>
         <Link to="/news">News</Link>
         <Link to="/chart">Chart</Link>

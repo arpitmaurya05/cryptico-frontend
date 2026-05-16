@@ -62,6 +62,8 @@ const PERIODS = [
   { label: "30D", days: 30,  interval: "daily"    },
   { label: "90D", days: 90,  interval: "daily"    },
   { label: "1Y",  days: 365, interval: "daily"    },
+  { label: "All Time",  days: 1000, interval: "daily"    },
+
 ];
 
 const fmt = (n) => {

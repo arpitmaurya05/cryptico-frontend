@@ -19,12 +19,13 @@ function Navbar() {
     <div className="navbar">
       <nav>
         <div className="nav_logo_container">
-          <img src={logo} alt="logo" className="nav_logo" draggable="false" />
+       <Link to="/">  <img src={logo} alt="logo" className="nav_logo" draggable="false" /></Link> 
         </div>
 
         <ul>
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/#transaction">Transaction</Link></li>
+          <li><Link to="/Transactionpage">Transactions</Link></li>
+          <li><Link to="/wallet">Wallet</Link></li>
           <li><Link to="/about">About</Link></li>
            <li style={{ position: "relative" }}>
             {user ? (
@@ -45,7 +46,7 @@ function Navbar() {
                 {open && (
                   <div className="dropdown">
                 <p><li><Link to="/news">📰 News</Link></li></p>
-                <p>👤 Profile</p>
+                <p><li><Link to="/profile">👤 Profile</Link></li></p>
                 <p><li><Link to="/chart">📈 Chart</Link></li></p>
                     <p onClick={handleLogout}>🚪 Logout</p>
                   </div>

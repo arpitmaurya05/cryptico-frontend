@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
 import { DetailsContext } from "../Context/DetailsContext";
 
-const API_URL = "https://cryptox-backend-1.onrender.com";
+const API_URL = "http://localhost:8000";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -127,10 +127,7 @@ const Login = () => {
 
         <div className="auth-divider"><span>or</span></div>
 
-        <button className="auth-wallet-btn" onClick={handleMetaMaskLogin} disabled={metamaskLoading}>
-          <span className="auth-wallet-icon">🦊</span>
-          {metamaskLoading ? "Connecting..." : "Continue with MetaMask"}
-        </button>
+       
 
         <div className="auth-switch">
           Don't have an account? <Link to="/signup">Create one</Link>
