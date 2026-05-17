@@ -40,9 +40,8 @@ const Home = () => {
           </h1>
 
           <p className="home-sub">
-            Trustless ETH transfers with permanent on-chain records.
-            No intermediaries. No downtime. Every transaction is
-            transparent and verifiable by anyone, anywhere.
+            Simplifying blockchain payments with secure and transparent ETH transfers.
+Built for the modern decentralized economy.
           </p>
 
           <div className="home-btns">
