@@ -97,7 +97,7 @@ function Navbar() {
             <FaUserCircle size={40} style={{ color: "#00ffb4" }} />
             <div>
               <div style={{ fontWeight: 600, fontSize: 14 }}>{user.firstName} {user.lastName}</div>
-              <div style={{ fontSize: 11, opacity: 0.5 }}>{user.email}</div>
+              <div style={{ fontSize: 11, opacity: 0.5 }}> </div>
             </div>
           </div>
         )}
