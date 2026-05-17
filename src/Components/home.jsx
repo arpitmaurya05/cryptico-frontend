@@ -57,10 +57,7 @@ Built for the modern decentralized economy.
           </div>
 
           <div className="home-stats">
-            <div>
-              <div className="home-stat-num">~<em>12s</em></div>
-              <div className="home-stat-lbl">Block time</div>
-            </div>
+            
             <div>
               <div className="home-stat-num"><em>100%</em></div>
               <div className="home-stat-lbl">On-chain</div>
