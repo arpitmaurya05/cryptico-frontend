@@ -603,3 +603,7 @@ p{
   from { opacity: 0; transform: translateY(-6px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+.dropdown { text-align: left; }
+.dropdown p { text-align: left; }
+.dropdown a { text-align: left; display: block; width: 100%; }

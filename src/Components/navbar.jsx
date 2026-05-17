@@ -30,9 +30,9 @@ function Navbar() {
 
           {/* Desktop links */}
           <ul className="nav-desktop">
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/Transactionpage">Transactions</Link></li>
-            <li><Link to="/about">About</Link></li>
+            <li ><Link to="/">Home</Link></li>
+            <li position="left"><Link to="/Transactionpage">Transactions</Link></li>
+            <li position="left"><Link to="/about">About</Link></li>
             <li style={{ position: "relative" }}>
               {user ? (
                 <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
@@ -48,10 +48,10 @@ function Navbar() {
                   />
                   {open && (
                     <div className="dropdown">
-                      <p><Link to="/wallet" onClick={() => setOpen(false)}>💳 Wallet</Link></p>
-                      <p><Link to="/news" onClick={() => setOpen(false)}>📰 News</Link></p>
-                      <p><Link to="/profile" onClick={() => setOpen(false)}>👤 Profile</Link></p>
-                      <p><Link to="/chart" onClick={() => setOpen(false)}>📈 Chart</Link></p>
+                      <p position="left"><Link to="/wallet" onClick={() => setOpen(false)}>💳 Wallet</Link></p>
+                      <p position="left"><Link to="/news" onClick={() => setOpen(false)}>📰 News</Link></p>
+                      <p position="left"><Link to="/profile" onClick={() => setOpen(false)}>👤 Profile</Link></p>
+                      <p position="left"><Link to="/chart" onClick={() => setOpen(false)}>📈 Chart</Link></p>
                       <p onClick={handleLogout} style={{ cursor: "pointer" }}>🚪 Logout</p>
                     </div>
                   )}
@@ -228,6 +228,8 @@ function Navbar() {
           display: flex;
           flex-direction: column;
           gap: 4px;
+            align-items: flex-start;  
+  width: 100%; 
         }
         .sidebar-nav a {
           display: block;
@@ -239,6 +241,7 @@ function Navbar() {
           font-size: 14px;
           transition: all 0.2s;
           letter-spacing: 0.5px;
+            text-align: left;   
         }
         .sidebar-nav a:hover {
           background: rgba(255,255,255,0.06);
@@ -272,6 +275,7 @@ function Navbar() {
           .sidebar { display: none !important; }
           .sidebar-overlay { display: none !important; }
         }
+         
       `}</style>
     </>
   );
