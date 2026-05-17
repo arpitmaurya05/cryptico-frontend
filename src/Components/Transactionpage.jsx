@@ -150,12 +150,7 @@ export default function TransactionPage() {
         </div>
 
         {/* Wallet address */}
-        <div style={styles.addressBar}>
-          <span style={{ color: "rgba(240,237,230,0.4)", fontSize: 11, letterSpacing: 2, textTransform: "uppercase" }}>
-            Wallet
-          </span>
-          <span>{address || "Loading..."}</span>
-        </div>
+         
 
         {/* Stats */}
         <div style={styles.statsRow}>
