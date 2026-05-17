@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { DetailsContext } from "../Context/DetailsContext";
 import "./ProfilePage.css";
 
-const API_URL = "http://localhost:8000";
+const API_URL = "https://cryptox-backend-1.onrender.com";
 
 const fmtAmount = (n) => (n >= 1 ? parseFloat(n).toFixed(4) : parseFloat(n).toFixed(6));
 

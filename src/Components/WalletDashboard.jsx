@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:8000";
+const API_URL = "https://cryptox-backend-1.onrender.com";
 
 const WalletDashboard = () => {
   const navigate = useNavigate();

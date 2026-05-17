@@ -4,7 +4,7 @@ import { contractAddress, contractABI } from "../utils/Contract";
 
 export const DetailsContext = createContext();
 
-const API_URL = "http://localhost:8000";
+const API_URL = "https://cryptox-backend-1.onrender.com";
 
 const DetailsProvider = ({ children }) => {
   const [account, setAccount] = useState("");

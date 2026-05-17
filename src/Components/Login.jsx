@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
 import { DetailsContext } from "../Context/DetailsContext";
 
-const API_URL = "http://localhost:8000";
+const API_URL = "https://cryptox-backend-1.onrender.com";
 
 const Login = () => {
   const navigate = useNavigate();
