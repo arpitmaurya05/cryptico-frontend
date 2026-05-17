@@ -25,7 +25,6 @@ function Navbar() {
         <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/Transactionpage">Transactions</Link></li>
-          <li><Link to="/wallet">Wallet</Link></li>
           <li><Link to="/about">About</Link></li>
            <li style={{ position: "relative" }}>
             {user ? (
@@ -38,13 +37,14 @@ function Navbar() {
     cursor: "pointer",
     color: open ? "#38bdf8" : "#ffffff",
     filter: open ? "drop-shadow(0 0 8px rgba(56, 189, 248, 0.8))" : "none",
-    transition: "all 0.2s ease",
+    transition: "all 0.2s ease", 
   }}
   onClick={() => setOpen(!open)}
 />
    {/* 👇 Dropdown */}
                 {open && (
                   <div className="dropdown">
+                  <p><li><Link to="/wallet">💳 Wallet</Link></li></p>  
                 <p><li><Link to="/news">📰 News</Link></li></p>
                 <p><li><Link to="/profile">👤 Profile</Link></li></p>
                 <p><li><Link to="/chart">📈 Chart</Link></li></p>
